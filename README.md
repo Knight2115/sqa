@@ -2,6 +2,12 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+## Ejecutar Test SonnarQube
+
+```bash
+npm run quality:sonar
+```
+
 First, run the development server:
 
 ```bash

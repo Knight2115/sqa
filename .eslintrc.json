@@ -1,0 +1,193 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "@typescript-eslint/recommended",
+    "@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:testing-library/react",
+    "plugin:jest-dom/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "testing-library",
+    "jest-dom",
+    "jsx-a11y",
+    "react-hooks",
+    "import"
+  ],
+  "rules": {
+    // TypeScript Rules (SQA)
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/explicit-function-return-type": ["warn", { "allowExpressions": true }],
+    "@typescript-eslint/no-non-null-assertion": "error",
+    "@typescript-eslint/prefer-const": "error",
+    "@typescript-eslint/no-var-requires": "error",
+    "@typescript-eslint/consistent-type-imports": ["error", { "prefer": "type-imports" }],
+    "@typescript-eslint/no-floating-promises": "error",
+    "@typescript-eslint/await-thenable": "error",
+    "@typescript-eslint/no-misused-promises": "error",
+    "@typescript-eslint/prefer-nullish-coalescing": "error",
+    "@typescript-eslint/prefer-optional-chain": "error",
+    "@typescript-eslint/no-unnecessary-type-assertion": "error",
+    "@typescript-eslint/strict-boolean-expressions": ["error", { "allowString": false, "allowNumber": false }],
+    "@typescript-eslint/switch-exhaustiveness-check": "error",
+    "@typescript-eslint/prefer-readonly": "error",
+    "@typescript-eslint/no-magic-numbers": ["warn", { "ignore": [0, 1, -1], "ignoreArrayIndexes": true }],
+    
+    // General JavaScript/ES6 Rules
+    "prefer-const": "error",
+    "no-var": "error",
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "eqeqeq": ["error", "always"],
+    "curly": ["error", "all"],
+    "no-debugger": "error",
+    "no-alert": "error",
+    "no-eval": "error",
+    "no-implied-eval": "error",
+    "no-new-func": "error",
+    "no-script-url": "error",
+    "no-return-assign": "error",
+    "no-sequences": "error",
+    "no-throw-literal": "error",
+    "no-unused-expressions": "error",
+    "no-useless-concat": "error",
+    "no-void": "error",
+    "prefer-template": "error",
+    "prefer-spread": "error",
+    "prefer-rest-params": "error",
+    
+    // Code Quality & Complexity
+    "complexity": ["warn", 10],
+    "max-depth": ["warn", 4],
+    "max-lines-per-function": ["warn", { "max": 50, "skipBlankLines": true, "skipComments": true }],
+    "max-lines": ["warn", { "max": 300, "skipBlankLines": true, "skipComments": true }],
+    "max-params": ["warn", 4],
+    "max-nested-callbacks": ["warn", 3],
+    "no-duplicate-imports": "error",
+    
+    // React Rules
+    "react/jsx-no-target-blank": ["error", { "enforceDynamicLinks": "always" }],
+    "react/jsx-key": ["error", { "checkFragmentShorthand": true }],
+    "react/no-array-index-key": "warn",
+    "react/no-danger": "warn",
+    "react/jsx-no-useless-fragment": "error",
+    "react/self-closing-comp": ["error", { "component": true, "html": true }],
+    
+    // React Hooks Rules
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    
+    // Accessibility Rules (SQA)
+    "jsx-a11y/alt-text": "error",
+    "jsx-a11y/aria-props": "error",
+    "jsx-a11y/aria-proptypes": "error",
+    "jsx-a11y/aria-role": "error",
+    "jsx-a11y/aria-unsupported-elements": "error",
+    "jsx-a11y/click-events-have-key-events": "warn",
+    "jsx-a11y/interactive-supports-focus": "error",
+    "jsx-a11y/label-has-associated-control": "error",
+    "jsx-a11y/no-noninteractive-element-interactions": "warn",
+    "jsx-a11y/no-static-element-interactions": "warn",
+    
+    // Import Rules
+    "import/order": ["error", {
+      "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+      "pathGroups": [
+        {
+          "pattern": "react",
+          "group": "external",
+          "position": "before"
+        },
+        {
+          "pattern": "next/**",
+          "group": "external",
+          "position": "before"
+        },
+        {
+          "pattern": "@/**",
+          "group": "internal"
+        }
+      ],
+      "pathGroupsExcludedImportTypes": ["react"],
+      "alphabetize": {
+        "order": "asc",
+        "caseInsensitive": true
+      }
+    }],
+    "import/no-duplicates": "error",
+    "import/no-unused-modules": "warn",
+    
+    // Testing Library Rules
+    "testing-library/await-async-query": "error",
+    "testing-library/no-await-sync-query": "error",
+    "testing-library/no-debugging-utils": "error",
+    "testing-library/no-dom-import": "error",
+    "testing-library/prefer-screen-queries": "error",
+    "testing-library/render-result-naming-convention": "error",
+    "testing-library/prefer-user-event": "error",
+    "testing-library/prefer-wait-for": "error",
+    "testing-library/no-wait-for-multiple-assertions": "error",
+    "testing-library/no-wait-for-side-effects": "error",
+    
+    // Jest DOM Rules
+    "jest-dom/prefer-checked": "error",
+    "jest-dom/prefer-enabled-disabled": "error",
+    "jest-dom/prefer-required": "error",
+    "jest-dom/prefer-to-have-attribute": "error",
+    "jest-dom/prefer-to-have-class": "error",
+    "jest-dom/prefer-to-have-text-content": "error",
+    "jest-dom/prefer-to-have-value": "error"
+  },
+  "overrides": [
+    {
+      "files": ["**/__tests__/**/*", "**/*.{test,spec}.*"],
+      "env": {
+        "jest": true
+      },
+      "rules": {
+        "@typescript-eslint/no-magic-numbers": "off",
+        "max-lines-per-function": "off",
+        "max-lines": "off"
+      }
+    },
+    {
+      "files": ["**/*.cy.{js,jsx,ts,tsx}"],
+      "extends": ["plugin:cypress/recommended"],
+      "rules": {
+        "cypress/no-assigning-return-values": "error",
+        "cypress/no-unnecessary-waiting": "error",
+        "cypress/assertion-before-screenshot": "warn",
+        "cypress/no-force": "warn"
+      }
+    },
+    {
+      "files": ["next.config.js", "jest.config.js", "cypress.config.ts"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off",
+        "import/no-anonymous-default-export": "off"
+      }
+    }
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.json"
+      }
+    }
+  }
+}
